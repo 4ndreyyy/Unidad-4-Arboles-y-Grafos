@@ -1,5 +1,4 @@
 package Arboles;
-
 public class Nodo {
     Nodo izq;
     Nodo dere;
