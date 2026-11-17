@@ -61,6 +61,47 @@ public class ArbolBinario {
         return  1+ totalNodos(nodo.izq) + totalNodos(nodo.dere);
     }
 
+    public int contarNodos() {
+        return totalNodos(raiz);
+    }
+
+    public int nivelDeNodo(int valor) {
+        Nodo actual = raiz;
+        int nivel = 0;
+
+        while (actual != null) {
+            if (actual.valor == valor) {
+                return nivel;
+            }
+            actual = valor < actual.valor ? actual.izq : actual.dere;
+            nivel++;
+        }
+
+        return -1;
+    }
+
+    public void buscarEnRango(int min, int max) {
+        if (min > max) {
+            return;
+        }
+        buscarEnRango(raiz, min, max);
+    }
+
+    private void buscarEnRango(Nodo nodo, int min, int max) {
+        if (nodo == null) {
+            return;
+        }
+        if (nodo.valor > min) {
+            buscarEnRango(nodo.izq, min, max);
+        }
+        if (nodo.valor >= min && nodo.valor <= max) {
+            System.out.println(nodo.valor);
+        }
+        if (nodo.valor < max) {
+            buscarEnRango(nodo.dere, min, max);
+        }
+    }
+
     public int altura(Nodo nodo){
         if (nodo==null){
             return 0;

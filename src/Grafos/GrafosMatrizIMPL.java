@@ -16,7 +16,11 @@ public class GrafosMatrizIMPL {
         System.out.println("");
         grafo.mostrarMatriz();
 
+        System.out.println("Arista entre 0-1 ="+grafo.existeArista(0,1));
+        System.out.println("Arista entre 0.3 ="+grafo.existeArista(0,3));
 
+        System.out.println("Valor de Arista 0-1");
+        System.out.println(grafo.valorAristaPonderado(0,1));
 
 
     }
